@@ -1,6 +1,7 @@
 ---
 layout: blog
 title: Colour by location
+path: colour-by-location
 date: 2019-04-30T06:15:57.233Z
 thumbnail: /images/uploads/2017-01-31-06.53.42-e1509304893848-900x1200.jpg
 rating: 4
