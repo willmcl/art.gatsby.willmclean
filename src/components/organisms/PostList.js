@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
+import PostLink from '../molecules/PostLink';
 
 class PostList extends Component {
   render() {
@@ -17,22 +18,23 @@ class PostList extends Component {
             ){
               edges {
                 node{
+                  id
                   frontmatter {
                     title
-                    thumbnail
-                    rating
                     date
+                    path
                   }
                 }
               }
             }
           }`}
           render={data => {
-            console.log( data );
             return (
-              data.allMarkdownRemark.edges.map( edge => (
-                <p>{edge.node.frontmatter.title}</p>
-              ) )
+              <ul>
+                {data.allMarkdownRemark.edges.map( edge => (
+                <PostLink key={edge.node.id} post={edge.node}/>
+                ) )}
+              </ul>
             )
           }}/>
       </div>
