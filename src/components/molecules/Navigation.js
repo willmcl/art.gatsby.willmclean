@@ -7,7 +7,7 @@ class Navigation extends Component {
             <nav className="Navigation">
               <ul>
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/page-2/">Page 2</Link></li>
+                <li><Link to="/about/">About</Link></li>
               </ul>
             </nav>
         )
