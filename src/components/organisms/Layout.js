@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
+import PageTransition from 'gatsby-plugin-page-transitions';
 
 import Header from '../molecules/Header';
 import Footer from '../molecules/Footer';
@@ -29,7 +30,9 @@ class Layout extends Component {
               <GlobalStyles/>
               <Header siteTitle={data.site.siteMetadata.title}/>
               <Navigation/>
-              <main>{this.props.children}</main>
+              <PageTransition>
+                <main>{this.props.children}</main>
+              </PageTransition>
               <Footer/>
             </>
           )}
