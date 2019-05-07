@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import Image from '../components/elements/Image';
 import Layout from '../components/organisms/Layout';
 
 export default function Template( {
@@ -14,8 +13,6 @@ export default function Template( {
         <div className="blog-post">
           <h1>{frontmatter.title}</h1>
           <h2>{frontmatter.date}</h2>
-          <p>{frontmatter.rating} / 5</p>
-          <Image imgName={frontmatter.thumbnail.replace( '/images/uploads/', '' )}/>
           <div
             className="blog-post-content"
             dangerouslySetInnerHTML={{ __html: html }}
@@ -34,8 +31,6 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
-        thumbnail
-        rating
       }
     }
   }
