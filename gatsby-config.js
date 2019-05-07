@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Great Start`,
-    description: `Will's great start for Gatsby builds`,
+    title: `Will Mclean`,
+    description: `Will McLean art archive`,
     author: `Will McLean`,
   },
   plugins: [

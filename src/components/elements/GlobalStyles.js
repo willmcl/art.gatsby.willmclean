@@ -37,15 +37,13 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
       font-weight: normal;
-      a { text-decoration: none; }
-      a:hover { text-decoration: none; }
   }
 
-  h1 { ${props => props.theme.typeStyles( 5 )}; }
-  h2 { ${props => props.theme.typeStyles( 4 )}; }
-  h3 { ${props => props.theme.typeStyles( 3 )}; }
-  h4 { ${props => props.theme.typeStyles( 2 )}; }
-  h5 { ${props => props.theme.typeStyles( 1 )}; }
+  h1 { ${props => props.theme.typeStyles( 1 )}; }
+  h2 { ${props => props.theme.typeStyles( 1 )}; }
+  h3 { ${props => props.theme.typeStyles( 1 )}; }
+  h4 { ${props => props.theme.typeStyles( 1 )}; }
+  h5 { ${props => props.theme.typeStyles( 0 )}; }
   h6 { ${props => props.theme.typeStyles( 0 )}; }
   p, ul, ol, blockquote { ${props => props.theme.typeStyles( 0 )}; }
 
@@ -84,9 +82,15 @@ const GlobalStyle = createGlobalStyle`
       padding-left: 4rem;
   }
   
-  a { color: ${props => props.theme.colours.link}; }
+  a { 
+    color: ${props => props.theme.colours.link}; 
+    text-decoration: none;
+  }
   a:visited { color: ${props => props.theme.colours.visited}; }
-  a:hover { color: ${props => props.theme.colours.link}; }
+  a:hover { 
+    color: ${props => props.theme.colours.link}; 
+    text-decoration: underline;
+  }
   a:active,
   a:focus {
       color: ${props => props.theme.colours.focus};

@@ -3,11 +3,11 @@ export const theme = {
     black: '#373737',
     white: 'white',
     // Links
-    link: '#0000ee',
-    visited: '#551a8b',
+    link: '#373737',
+    visited: '#373737',
     // Accessibility and forms
-    focus: '#4fcd90',
-    error: '#d0021b',
+    focus: '#373737',
+    error: '#373737',
   },
   breakpoints: {
     sm: '(min-width: 576px)',
