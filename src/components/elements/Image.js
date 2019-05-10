@@ -20,7 +20,7 @@ const Image = ({ imgName }) => (
     `}
     render={data => {
       const image = data.allImageSharp.edges.find(
-        edge => edge.node.fluid.originalName === imgName
+        edge => edge.node.fluid.originalName === imgName.replace(/^.*[\\/]/, '')
       );
       if (!image) {
         return null

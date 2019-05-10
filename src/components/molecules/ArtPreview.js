@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { Link } from "gatsby";
+import Image from '../elements/Image';
 
-class PostLink extends Component {
+class ArtPreview extends Component {
     render() {
         return (
             <li>
               <Link to={this.props.post.frontmatter.path}>
-                <p>{this.props.post.frontmatter.title} ({this.props.post.frontmatter.date})</p>
+                <Image imgName={this.props.post.frontmatter.thumbnail}/>
               </Link>
             </li>
         )
     }
 }
 
-export default PostLink;
+export default ArtPreview;
