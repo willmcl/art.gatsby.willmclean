@@ -41,18 +41,18 @@ const Holder = styled.ul`
       grid-column: 1/2; 
       grid-row: 5/6; 
     }
-    //li:nth-child(6) { 
-    //  grid-column: 1/2; 
-    //  grid-row: 6/7; 
-    //}
-    //li:nth-child(7) { 
-    //  grid-column: 1/2; 
-    //  grid-row: 7/8; 
-    //}
-    //li:nth-child(8) { 
-    //  grid-column: 1/2; 
-    //  grid-row: 8/9; 
-    //}
+    li:nth-child(6) { 
+      grid-column: 1/2; 
+      grid-row: 6/7; 
+    }
+    li:nth-child(7) { 
+      grid-column: 1/2; 
+      grid-row: 7/8; 
+    }
+    li:nth-child(8) { 
+      grid-column: 1/2; 
+      grid-row: 8/9; 
+    }
 `;
 
 const IndexPage = () => (

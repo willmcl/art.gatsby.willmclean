@@ -16,6 +16,7 @@ class BlogList extends Component {
                 fields: [frontmatter___date]
                 order: DESC
               }
+              limit: 8
             ){
               edges {
                 node{
