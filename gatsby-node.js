@@ -12,6 +12,7 @@ exports.createPages = ({ actions, graphql }) => {
   return graphql(`
     {
       allMarkdownRemark(
+        filter: { fileAbsolutePath: {regex : "\/_posts/blog/"} }
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
       ) {
@@ -19,6 +20,7 @@ exports.createPages = ({ actions, graphql }) => {
           node {
             frontmatter {
               path
+              title
             }
           }
         }
@@ -30,10 +32,15 @@ exports.createPages = ({ actions, graphql }) => {
     }
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       createPage({
-        path: node.frontmatter.path,
+        path: '/' + node.frontmatter.title.toLowerCase()
+        .replace(/[^\w ]+/g,'')
+        .replace(/ +/g,'-'),
         component: postTemplate,
-        context: {}, // additional data can be passed via context
+        context: {
+          title: node.frontmatter.title,
+        }, // additional data can be passed via context
       })
     })
   })
 };
+

@@ -11,6 +11,7 @@ export default function Template( {
     <Layout>
       <div className="blog-post-container">
         <div className="blog-post">
+          art template
           <h1>{frontmatter.title}</h1>
           <h2>{frontmatter.date}</h2>
           <div
@@ -24,8 +25,8 @@ export default function Template( {
 }
 
 export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query($title: String!) {
+    markdownRemark(frontmatter: { title: { eq: $title } }) {
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")

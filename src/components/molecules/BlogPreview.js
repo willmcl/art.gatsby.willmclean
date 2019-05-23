@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
+import { convertToSlug } from '../../utils/helpers';
 
 class BlogPreview extends Component {
 
@@ -7,7 +8,7 @@ class BlogPreview extends Component {
     const frontmatter = this.props.post.frontmatter;
     return (
       <li>
-        <Link to={frontmatter.path}>{frontmatter.title}</Link>
+        <Link to={ convertToSlug(frontmatter.title)}>{frontmatter.title}</Link>
       </li>
     )
   }
