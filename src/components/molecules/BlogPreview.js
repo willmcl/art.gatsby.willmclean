@@ -2,6 +2,24 @@ import React, { Component } from 'react';
 import BlogPreviewTypeOne from './BlogPreviewTypeOne';
 import BlogPreviewTypeTwo from './BlogPreviewTypeTwo';
 import BlogPreviewTypeThree from './BlogPreviewTypeThree';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
+
+const Preview = styled.li`
+    display: flex;
+    align-items: stretch;
+    min-height: 180px;
+    @media ( ${props => props.theme.breakpoints.md} ) {
+      min-height: 250px;
+    }
+    @media ( ${props => props.theme.breakpoints.lg} ) {
+      min-height: 300px;
+    }
+    a {
+      display: inline-block;
+      width: 100%;
+    }
+`;
 
 class BlogPreview extends Component {
 
@@ -11,9 +29,11 @@ class BlogPreview extends Component {
     const randomiser = Math.floor(Math.random() * 5) + 1;
     if( wordCount < 5 ) {
       return (
-        <BlogPreviewTypeOne
-          path = {frontmatter.path}
-          title={frontmatter.title}/>
+        <Preview>
+          <Link to={frontmatter.path}>
+            <BlogPreviewTypeOne title={frontmatter.title} />
+          </Link>
+        </Preview>
       )
     } else if( wordCount < 10 && wordCount !== 6 ) {
       return (
@@ -24,9 +44,11 @@ class BlogPreview extends Component {
       )
     } else {
       return (
-        <BlogPreviewTypeTwo
-          path = {frontmatter.path}
-          title={frontmatter.title}/>
+        <Preview>
+          <Link to={frontmatter.path}>
+            <BlogPreviewTypeTwo title={frontmatter.title}/>
+          </Link>
+        </Preview>
       )
     }
   }

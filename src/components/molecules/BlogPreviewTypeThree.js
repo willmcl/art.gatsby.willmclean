@@ -1,20 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-const Preview = styled.li`
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    min-height: 180px;
-    @media ( ${props => props.theme.breakpoints.md} ) {
-      min-height: 250px;
-    }
-    @media ( ${props => props.theme.breakpoints.lg} ) {
-      min-height: 300px;
-    }
-    &:hover { border: 1px solid; }
-    a {
+const Type = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -22,17 +9,16 @@ const Preview = styled.li`
       padding: 1rem;
       font-weight: bold;
       .middle {
-        transform: rotate(-10deg) scale( 1.2 );
+        transform: rotate(10deg) scale( 1.2 );
         transition: transform 0.25s linear;
         font-weight: normal;
       }
       &:hover {
         text-decoration: none;
         .middle {
-          transform: rotate(10deg) scale( 1.2 );
+          transform: rotate(-10deg) scale( 1.2 );
         }
       }
-    }
 `;
 
 class BlogPreviewTypeThree extends Component {
@@ -42,8 +28,7 @@ class BlogPreviewTypeThree extends Component {
     let middle = top.splice(middleIndex);
     let bottom = middle.splice(1);
     return (
-      <Preview>
-        <Link to={this.props.path}>
+      <Type>
           <span className="top">{top.map( word => (
             <>{word} </>
           ) )}</span>
@@ -53,8 +38,7 @@ class BlogPreviewTypeThree extends Component {
           <span className="bottom">{bottom.map( word => (
             <> {word}</>
           ) )}</span>
-        </Link>
-      </Preview>
+      </Type>
     )
   }
 }
