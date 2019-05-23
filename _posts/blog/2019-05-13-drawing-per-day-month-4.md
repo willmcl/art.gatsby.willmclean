@@ -1,6 +1,6 @@
 ---
 title: Drawing per day - Month 4
-path: drawing-per-day-month-4
+path: /drawing-per-day-month-4
 date: 2016-02-26T04:27:00.000Z
 ---
 I am not sure I ever found drawing enjoyable. Not as far as I can remember. I found it hard work. It involved a lot of concentration. It was very emotional as I always wanted the drawings to be good and they never were… well they certainly weren’t perfect. I drew out of a mix of guilt (“Oh, I really should do some drawings. I haven’t done any in ages”), envy (“That person’s drawings are so good, I wish I was that good”) and boredom (“What should I do while I am watching this crap telly?”).

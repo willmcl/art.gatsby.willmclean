@@ -1,6 +1,6 @@
 ---
 title: Drawing per day - Month 5
-path: drawing-per-day-month-5
+path: /drawing-per-day-month-5
 date: 2016-03-26T04:29:00.000Z
 ---
 I have run out of things to draw. I have drawn every photograph in my house. I have switched to photos in books and a box of James Bond, 007 postcards that I was given for Xmas one year. 🔫⛷

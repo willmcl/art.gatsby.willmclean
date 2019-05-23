@@ -1,6 +1,6 @@
 ---
 title: Drawing per day - Month 3
-path: drawing-per-day-month-3
+path: /drawing-per-day-month-3
 date: 2016-01-26T04:25:00.000Z
 ---
 I think I have now drawn almost every photograph in my house. One drawing a day is quite a lot. Subsequently, it forces you to focus on speed. You can’t possibly set aside 2 hours per day for your drawing. They need to be done in 5 minutes. And they are.

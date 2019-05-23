@@ -1,6 +1,6 @@
 ---
 title: Drawing per day - Month 2
-path: drawing-per-day-month-2
+path: /drawing-per-day-month-2
 date: 2015-12-26T04:22:00.000Z
 ---
 The major benefit of doing one drawing per day is that it forces you to not care. The one per day is more important than the drawing — “Just get it done so you can go to bed for god’s sake”
