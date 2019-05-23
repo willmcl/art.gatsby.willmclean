@@ -9,7 +9,6 @@ const List = styled.ul`
     padding-left: 0;
     li {
       margin: 0 1rem;
-      transform: rotate(180deg);
     }
 `;
 
@@ -18,6 +17,7 @@ class Navigation extends Component {
         return (
             <nav>
               <List>
+                <li><Link to="/">Art</Link></li>
                 <li><Link to="/blog">Blog</Link></li>
                 <li><Link to="/about/">About</Link></li>
                 <li><a href="https://www.etsy.com/au/shop/WillMcLeanStudio" target="_blank" rel="noopener noreferrer">Shop</a></li>
