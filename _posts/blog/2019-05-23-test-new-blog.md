@@ -1,7 +1,7 @@
 ---
 title: Test new blog
-path: /old-path
+path: /new-test-new-blog
 testpath: '{{slug}}'
-date: 2019-05-23T03:22:52.502Z
+date: 2019-05-23T03:24:55.464Z
 ---
-Test new blog post
+Test new blog
