@@ -37,12 +37,13 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
       font-weight: normal;
+      text-decoration: underline;
   }
 
-  h1 { ${props => props.theme.typeStyles( 1 )}; }
-  h2 { ${props => props.theme.typeStyles( 1 )}; }
-  h3 { ${props => props.theme.typeStyles( 1 )}; }
-  h4 { ${props => props.theme.typeStyles( 1 )}; }
+  h1 { ${props => props.theme.typeStyles( 0 )}; }
+  h2 { ${props => props.theme.typeStyles( 0 )}; }
+  h3 { ${props => props.theme.typeStyles( 0 )}; }
+  h4 { ${props => props.theme.typeStyles( 0 )}; }
   h5 { ${props => props.theme.typeStyles( 0 )}; }
   h6 { ${props => props.theme.typeStyles( 0 )}; }
   p, ul, ol, blockquote { ${props => props.theme.typeStyles( 0 )}; }

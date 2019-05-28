@@ -7,6 +7,10 @@ const List = styled.ul`
     justify-content: center;
     list-style: none;
     padding-left: 0;
+    margin: 4rem 0;
+    @media ( ${props => props.theme.breakpoints.md} ) {
+      margin: 8rem 0;
+    }
     li {
       margin: 0 1rem;
     }

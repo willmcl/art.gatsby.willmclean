@@ -11,11 +11,9 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Path", name: "path", widget: "string"}
-      - {label: "Test Path", name: "testpath", widget: "hidden", default: "{{slug}}"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Art", name: "art", widget: "relation", collection: "art", searchFields: ["title"], valueField: "title", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
   - name: "art"
     label: "Art"
     folder: "_posts/art"
@@ -23,8 +21,10 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Path", name: "path", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
       - {label: "Image", name: "thumbnail", widget: "image", allow_multiple: false}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Material", name: "material", widget: "string"}
+      - {label: "Width", name: "width", widget: "string"}
+      - {label: "Height", name: "height", widget: "string"}
+      - {label: "Rating (scale of 1-5)", name: "rating", widget: "number"}
       - {label: "Body", name: "body", widget: "markdown", required: false}
