@@ -5,8 +5,12 @@ import BlogPreview from '../components/molecules/BlogPreview';
 import SEO from '../components/molecules/SEO';
 
 const List = styled.ul`
-      list-style: none;
-      padding-left: 0;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 8rem;
+  @media ( ${props => props.theme.breakpoints.md} ) {
+    margin-left: 50%;
+  }
 `;
 
 class Blog extends Component {

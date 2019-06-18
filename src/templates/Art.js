@@ -11,18 +11,28 @@ const Holder = styled.article`
   grid-column-gap: 2rem;
   grid-row-gap: 2rem;
   @media ( ${props => props.theme.breakpoints.md} ) {
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
   }
 `;
 
 const Content = styled.section`
-  p { margin: 0.5rem 0; }
+  margin-bottom: 8rem;
+  h1, p { margin: 0; }
   @media ( ${props => props.theme.breakpoints.md} ) {
-    grid-column: 3/4;
-    margin-top: 12rem;
+    grid-column: 2/3;
   }
-  > :first-child { margin-top: 0 }
-  > :last-child { margin-bottom: 0 }
+  .text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 2rem;
+    grid-row-gap: 0.5rem;
+    margin-top: 2rem;
+    > :nth-child(even) { text-align: right; }
+    .description {
+      grid-column: 1/3;
+      margin-top: 2rem;
+    }
+  }
 `;
 
 export default function Template( { data } ) {
@@ -31,16 +41,15 @@ export default function Template( { data } ) {
   return (
     <Layout>
       <Holder>
-        <Image imgName={frontmatter.thumbnail}/>
         <Content>
-          <h1>{frontmatter.title}</h1>
-          <p>{moment(frontmatter.date).format('YYYY')}</p>
-          <p>{frontmatter.material}</p>
-          <p>{frontmatter.width} x {frontmatter.height}</p>
-          <div
-            className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+          <Image imgName={frontmatter.thumbnail}/>
+          <div className="text">
+            <h1>{frontmatter.title}</h1>
+            <p>{moment( frontmatter.date ).format( 'YYYY' )}</p>
+            <p>{frontmatter.material}</p>
+            <p>{frontmatter.width} x {frontmatter.height}</p>
+            <div className="description" dangerouslySetInnerHTML={{ __html: html }}/>
+          </div>
         </Content>
       </Holder>
     </Layout>
@@ -48,17 +57,17 @@ export default function Template( { data } ) {
 }
 
 export const pageQuery = graphql`
-  query($title: String!) {
-    markdownRemark(frontmatter: { title: { eq: $title } }) {
-      html
-      frontmatter {
-        title
-        date
-        thumbnail
-        material
-        width
-        height
-      }
+    query($title: String!) {
+        markdownRemark(frontmatter: { title: { eq: $title } }) {
+            html
+            frontmatter {
+                title
+                date
+                thumbnail
+                material
+                width
+                height
+            }
+        }
     }
-  }
 `;

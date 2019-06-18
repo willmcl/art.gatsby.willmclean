@@ -1,6 +1,14 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/organisms/Layout';
+import styled from 'styled-components';
+
+const Holder = styled.article`
+  margin-bottom: 8rem;
+  @media ( ${props => props.theme.breakpoints.md} ) {
+    margin-left: 50%;
+  }
+`;
 
 export default function Template( {
                                     data, // this prop will be injected by the GraphQL query below.
@@ -9,30 +17,24 @@ export default function Template( {
   const { frontmatter, html } = markdownRemark;
   return (
     <Layout>
-      <div className="blog-post-container">
-        <div className="blog-post">
-          blog template
-          <h1>{frontmatter.title}</h1>
-          <h2>{frontmatter.date}</h2>
-          <div
-            className="blog-post-content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
-        </div>
-      </div>
+      <Holder>
+        <h1>{frontmatter.title}</h1>
+        <p>{frontmatter.date}</p>
+        <div dangerouslySetInnerHTML={{ __html: html }}/>
+      </Holder>
     </Layout>
   )
 }
 
 export const pageQuery = graphql`
-  query($title: String!) {
-    markdownRemark(frontmatter: { title: { eq: $title } }) {
-      html
-      frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        path
-        title
-      }
+    query($title: String!) {
+        markdownRemark(frontmatter: { title: { eq: $title } }) {
+            html
+            frontmatter {
+                date(formatString: "MMMM DD, YYYY")
+                path
+                title
+            }
+        }
     }
-  }
 `;
