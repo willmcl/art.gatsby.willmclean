@@ -1,7 +1,6 @@
 ---
 title: Drawing per day - Month 8
-path: /drawing-per-day-month-8
-date: 2019-06-26T05:35:00.000Z
+date: 2016-06-26T05:35:00.000Z
 ---
 The process should give you the best chance of producing something half decent. This is the process:
 
