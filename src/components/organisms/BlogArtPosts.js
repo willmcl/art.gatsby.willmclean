@@ -8,12 +8,9 @@ const List = styled.ul`
   padding-left: 0;
   margin-bottom: 8rem;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-row-gap: 2rem;
   grid-column-gap: 2rem;
-  @media ( ${props => props.theme.breakpoints.sm} ) {
-    grid-template-columns: 1fr 1fr;
-  }
 `;
 
 class BlogArtPosts extends Component {

@@ -21,6 +21,10 @@ const Content = styled.section`
   @media ( ${props => props.theme.breakpoints.md} ) {
     grid-column: 2/3;
   }
+  img {
+    width: 100%;
+    height: auto;
+  }
   .text {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -42,7 +46,9 @@ export default function Template( { data } ) {
     <Layout>
       <Holder>
         <Content>
-          <Image imgName={frontmatter.thumbnail}/>
+          <Image
+            imgName={frontmatter.thumbnail}
+            sizes="(min-width: 768px) 50vw, 100vw" />
           <div className="text">
             <h1>{frontmatter.title}</h1>
             <p>{moment( frontmatter.date ).format( 'YYYY' )}</p>
