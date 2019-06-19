@@ -21,7 +21,7 @@ class Header extends Component {
             {this.props.siteTitle}
           </Link>
         </p>
-        <p>Art Archive</p>
+        <p>Archive</p>
       </Holder>
     )
   }
