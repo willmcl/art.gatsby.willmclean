@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import Layout from '../components/organisms/Layout';
 import ArtPreview from '../components/molecules/ArtPreview';
 import styled from 'styled-components';
