@@ -8,7 +8,7 @@ class BlogPreview extends Component {
     const frontmatter = this.props.post.frontmatter;
     return (
       <li>
-        <Link to={ convertToSlug(frontmatter.title)}>{frontmatter.title}</Link>
+        <Link to={`/blog/${convertToSlug(frontmatter.title)}`}>{frontmatter.title}</Link>
       </li>
     )
   }

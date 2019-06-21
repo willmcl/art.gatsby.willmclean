@@ -4,6 +4,7 @@ import Layout from '../components/organisms/Layout';
 import ArtPreview from '../components/molecules/ArtPreview';
 import styled from 'styled-components';
 import SEO from '../components/molecules/SEO';
+import Pagination from '../components/organisms/Pagination';
 
 const Holder = styled.ul`
     list-style: none;
@@ -24,40 +25,17 @@ class ArtArchive extends Component {
 
   render() {
 
-    const { currentPage, numPages } = this.props.pageContext;
-    const isFirst = currentPage === 1;
-    const isLast = currentPage === numPages;
-    const prevPage = currentPage - 1 === 1 ? "/art" : `/art/${(currentPage - 1).toString()}`;
-    const nextPage = `/art/${(currentPage + 1).toString()}`;
-
     return (
       <Layout>
         <SEO title="Art"/>
         <article>
-          <nav>
-            {!isFirst && (
-              <Link to={prevPage} rel="prev">
-                ← Previous Page
-              </Link>
-            )}
-            {!isLast && (
-              <Link to={nextPage} rel="next">
-                Next Page →
-              </Link>
-            )}
-          </nav>
-          <nav>
-            {Array.from({ length: numPages }, (_, i) => (
-              <Link key={`pagination-number${i + 1}`} to={`/art/${i === 0 ? "" : i + 1}`}>
-                {i + 1}
-              </Link>
-            ))}
-          </nav>
+          <Pagination pageContext={this.props.pageContext}/>
           <Holder>
             {this.props.data.allMarkdownRemark.edges.map( edge => (
               <ArtPreview key={edge.node.id} post={edge.node}/>
             ) )}
           </Holder>
+          <Pagination pageContext={this.props.pageContext}/>
         </article>
       </Layout>
     )

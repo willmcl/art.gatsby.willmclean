@@ -49,7 +49,7 @@ exports.createPages = ( { actions, graphql } ) => {
     // Create blog pages
     result.data.blogs.edges.forEach( ( { node } ) => {
       createPage( {
-        path: '/' + node.frontmatter.title.toLowerCase()
+        path: '/blog/' + node.frontmatter.title.toLowerCase()
         .replace( /[^\w ]+/g, '' )
         .replace( / +/g, '-' ),
         component: blogTemplate,
@@ -62,7 +62,7 @@ exports.createPages = ( { actions, graphql } ) => {
     // Create art pages
     result.data.art.edges.forEach( ( { node } ) => {
       createPage( {
-        path: '/' + node.frontmatter.title.toLowerCase()
+        path: '/art/' + node.frontmatter.title.toLowerCase()
         .replace( /[^\w ]+/g, '' )
         .replace( / +/g, '-' ),
         component: artTemplate,
@@ -78,7 +78,7 @@ exports.createPages = ( { actions, graphql } ) => {
     const numPages = Math.ceil( posts.length / postsPerPage );
     Array.from( { length: numPages } ).forEach( ( _, i ) => {
       createPage( {
-        path: i === 0 ? `/art` : `/art/${i + 1}`,
+        path: i === 0 ? `/` : `/${i + 1}`,
         component: path.resolve( './src/templates/ArtArchive.js' ),
         context: { limit: postsPerPage, skip: i * postsPerPage, numPages, currentPage: i + 1, },
       } )
