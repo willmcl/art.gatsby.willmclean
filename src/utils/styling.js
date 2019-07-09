@@ -1,13 +1,13 @@
 export const theme = {
   colours: {
-    black: '#373737',
+    black: '#000',
     white: 'white',
     // Links
-    link: '#373737',
-    visited: '#373737',
+    link: '#000',
+    visited: '#000',
     // Accessibility and forms
-    focus: '#373737',
-    error: '#373737',
+    focus: '#000',
+    error: '#000',
   },
   breakpoints: {
     sm: 'min-width: 576px',

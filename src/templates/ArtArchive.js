@@ -5,6 +5,7 @@ import ArtPreview from '../components/molecules/ArtPreview';
 import styled from 'styled-components';
 import SEO from '../components/molecules/SEO';
 import Pagination from '../components/organisms/Pagination';
+import Intro from '../components/molecules/Intro';
 
 const Holder = styled.ul`
     list-style: none;
@@ -29,7 +30,7 @@ class ArtArchive extends Component {
       <Layout>
         <SEO title="Art"/>
         <article>
-          <Pagination pageContext={this.props.pageContext}/>
+          <Intro visible={this.props.pageContext.currentPage === 1}/>
           <Holder>
             {this.props.data.allMarkdownRemark.edges.map( edge => (
               <ArtPreview key={edge.node.id} post={edge.node}/>

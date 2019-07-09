@@ -8,7 +8,7 @@ const Holder = styled.nav`
   grid-column-gap: 2rem;
   align-items: center;
   justify-items: center;
-  margin: 8rem 0;
+  margin: 20rem 0;
   ul {
     list-style: none;
     margin: 0;
