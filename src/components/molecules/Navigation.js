@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const List = styled.ul`
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     list-style: none;
     margin: 1rem 0;
     padding: 1rem 0;
@@ -12,7 +12,8 @@ const List = styled.ul`
       margin: 1rem 0;
     }
     li {
-      margin: 0 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
     }
 `;
 

@@ -16,6 +16,7 @@ const Holder = styled.article`
 `;
 
 const Content = styled.section`
+  margin-top: 8rem;
   margin-bottom: 8rem;
   h1, p { margin: 0; }
   @media ( ${props => props.theme.breakpoints.md} ) {
