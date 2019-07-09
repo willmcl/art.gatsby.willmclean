@@ -42,8 +42,8 @@ class Pagination extends Component {
         )}
         <ul>
           {Array.from( { length: numPages }, ( _, i ) => (
-            <li>
-              <Link key={`pagination-number${i + 1}`} to={`/${i === 0 ? '' : i + 1}`}>
+            <li key={`pagination-number${i + 1}`}>
+              <Link to={`/${i === 0 ? '' : i + 1}`}>
                 {i + 1}
               </Link>
             </li>
