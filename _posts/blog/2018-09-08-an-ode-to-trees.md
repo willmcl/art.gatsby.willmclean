@@ -1,7 +1,16 @@
 ---
 title: An ode to trees
-path: /an-ode-to-trees
 date: 2018-09-08T06:15:57.233Z
+art:
+  - Untitled 537
+  - Untitled 552
+  - Untitled 533
+  - Untitled 549
+  - Untitled 547
+  - Untitled 554
+  - Untitled 542
+  - Untitled 540
+  - Untitled 538
 ---
 Oh trees, you have so many branches, but I can’t draw them all so I cut most of them off.
 Oh trees, sometimes your trunk is darker than your leaves, sometimes the other way around,
