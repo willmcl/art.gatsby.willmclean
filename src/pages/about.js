@@ -11,10 +11,14 @@ const Holder = styled.article`
   grid-column-gap: 2rem;
   align-items: start;
   grid-auto-flow: dense;
-  @media ( ${props => props.theme.breakpoints.md} ) {
-    grid-template-columns: 1fr 1fr;
+  @media ( ${props => props.theme.breakpoints.sm} ) {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+  @media ( ${props => props.theme.breakpoints.lg} ) {
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .text {
+    margin: 8rem 0;
     @media ( ${props => props.theme.breakpoints.md} ) {
       grid-column: 2/3;
     }
@@ -27,8 +31,7 @@ const SecondPage = () => (
     <Holder>
       <div className="text">
         <h1>About</h1>
-        <p>Will McLean is an artist based in Wamberal on the Central Coast of NSW, Australia. His practice primarily
-          involves observational acrylic paintings. These paintings are based on studies produced in pencil.</p>
+        <p>Will McLean is an artist based in Wamberal on the Central Coast of NSW, Australia. His practice takes the form of abstracted observational acrylic paintings. These paintings are based on studies produced in pencil.</p>
         <h2>Group Shows</h2>
         <ul>
           <li>Rude Assembly 3 - 2019 - Burton Project Space</li>

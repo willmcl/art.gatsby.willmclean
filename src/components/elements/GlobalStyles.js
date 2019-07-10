@@ -28,6 +28,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6,
   p,
   ol, ul, li,
   code, kbd, pre, samp {
@@ -36,17 +37,18 @@ const GlobalStyle = createGlobalStyle`
       margin-bottom: 2rem;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
       font-weight: 600;
       text-transform: uppercase;
   }
 
-  h1 { ${props => props.theme.typeStyles( 0 )}; }
-  h2 { ${props => props.theme.typeStyles( 0 )}; }
-  h3 { ${props => props.theme.typeStyles( 0 )}; }
-  h4 { ${props => props.theme.typeStyles( 0 )}; }
-  h5 { ${props => props.theme.typeStyles( 0 )}; }
-  h6 { ${props => props.theme.typeStyles( 0 )}; }
+  h1, .h1 { ${props => props.theme.typeStyles( 0 )}; }
+  h2, .h2 { ${props => props.theme.typeStyles( 0 )}; }
+  h3, .h3 { ${props => props.theme.typeStyles( 0 )}; }
+  h4, .h4 { ${props => props.theme.typeStyles( 0 )}; }
+  h5, .h5 { ${props => props.theme.typeStyles( 0 )}; }
+  h6, .h6 { ${props => props.theme.typeStyles( 0 )}; }
   p, ul, ol, blockquote { ${props => props.theme.typeStyles( 0 )}; }
 
   li {

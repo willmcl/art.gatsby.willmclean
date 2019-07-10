@@ -3,21 +3,43 @@ import { graphql } from 'gatsby';
 import Layout from '../components/organisms/Layout';
 import BlogArtPosts from '../components/organisms/BlogArtPosts';
 import styled from 'styled-components';
+import CircleText from '../components/elements/CircleText';
 
 const Holder = styled.article`
   margin-bottom: 8rem;
+  margin-top: 8rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-row-gap: 2rem;
   grid-column-gap: 2rem;
   align-items: start;
   grid-auto-flow: dense;
-  @media ( ${props => props.theme.breakpoints.md} ) {
-    grid-template-columns: 1fr 1fr;
+  @media ( ${props => props.theme.breakpoints.sm} ) {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+  @media ( ${props => props.theme.breakpoints.lg} ) {
+    grid-template-columns: 1fr 1fr 1fr;
   }
   .text {
-    @media ( ${props => props.theme.breakpoints.md} ) {
+    @media ( ${props => props.theme.breakpoints.sm} ) {
       grid-column: 2/3;
+    }
+    h1 { display: none; }
+    .titleHolder {
+      margin: 0 6rem;
+      @media ( ${props => props.theme.breakpoints.sm} ) {
+        margin: 0;
+      }
+    }
+    .h6 { 
+      text-align: center; 
+      margin-top: 4rem;
+      margin-bottom: 4rem;
+    }
+  }
+  .images {
+    @media ( ${props => props.theme.breakpoints.sm} ) {
+      grid-column: 1/4;
     }
   }
 `;
@@ -32,10 +54,15 @@ export default function Template( {
       <Holder>
         <div className="text">
           <h1>{frontmatter.title}</h1>
-          <p>{frontmatter.date}</p>
+          <div className="titleHolder">
+            <CircleText text={frontmatter.title}/>
+          </div>
+          <p className="h6">{frontmatter.date}</p>
           <div dangerouslySetInnerHTML={{ __html: html }}/>
         </div>
-        <BlogArtPosts art={frontmatter.art}/>
+        <section className="images">
+          <BlogArtPosts art={frontmatter.art}/>
+        </section>
       </Holder>
     </Layout>
   )
