@@ -60,7 +60,8 @@ exports.createPages = ( { actions, graphql } ) => {
     } );
 
     // Create art pages
-    result.data.art.edges.forEach( ( { node } ) => {
+    const artPosts = result.data.art.edges;
+    artPosts.forEach( ( { node }, i, array ) => {
       createPage( {
         path: '/art/' + node.frontmatter.title.toLowerCase()
         .replace( /[^\w ]+/g, '' )
@@ -68,7 +69,9 @@ exports.createPages = ( { actions, graphql } ) => {
         component: artTemplate,
         context: {
           title: node.frontmatter.title,
-        }, // additional data can be passed via context
+          next: array[i + 1],
+          prev: array[i - 1],
+        },
       } )
     } );
 

@@ -7,8 +7,12 @@ import Footer from '../molecules/Footer';
 import Navigation from '../molecules/Navigation';
 
 import GlobalStyles from '../elements/GlobalStyles';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import { theme } from '../../utils/styling';
+
+const Content = styled.main`
+  min-height: 80vh;
+`;
 
 class Layout extends Component {
   render() {
@@ -29,7 +33,7 @@ class Layout extends Component {
               <GlobalStyles/>
               <Header siteTitle={data.site.siteMetadata.title}/>
               <Navigation/>
-              <main>{this.props.children}</main>
+              <Content>{this.props.children}</Content>
               <Footer/>
             </>
           )}
