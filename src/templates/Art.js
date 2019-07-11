@@ -59,8 +59,6 @@ const Pagination = styled.nav`
     margin: 0;
     transform: translateX(${props => props.prev ? "-2rem" : "2rem"}) rotate(${props => props.prev ? 270 : 90}deg);
     transform-origin: center;
-    font-weight: 600;
-    text-transform: uppercase;
   }
 `;
 

@@ -11,10 +11,6 @@ const List = styled.ul`
     @media ( ${props => props.theme.breakpoints.md} ) {
       margin: 1rem 0;
     }
-    li {
-      font-weight: 600;
-      text-transform: uppercase;
-    }
 `;
 
 class Navigation extends Component {

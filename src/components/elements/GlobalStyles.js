@@ -32,15 +32,15 @@ const GlobalStyle = createGlobalStyle`
   p,
   ol, ul, li,
   code, kbd, pre, samp {
-      line-height: 1.5;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
+    line-height: 1.5;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
 
   h1, h2, h3, h4, h5, h6,
   .h1, .h2, .h3, .h4, .h5, .h6 {
-      font-weight: 600;
-      text-transform: uppercase;
+    font-weight: normal;
+    font-style: italic;
   }
 
   h1, .h1 { ${props => props.theme.typeStyles( 0 )}; }
@@ -88,7 +88,7 @@ const GlobalStyle = createGlobalStyle`
   
   a { 
     color: ${props => props.theme.colours.link}; 
-    text-decoration: none;
+    text-decoration: underline;
   }
   a:visited { color: ${props => props.theme.colours.visited}; }
   a:hover { 

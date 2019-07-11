@@ -7,8 +7,8 @@ const Holder = styled.nav`
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 2rem;
   align-items: center;
-  justify-items: center;
   margin: 20rem 0;
+  p:last-child { text-align: right; }
   ul {
     list-style: none;
     margin: 0;
@@ -17,6 +17,7 @@ const Holder = styled.nav`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 9rem;
+    justify-self: center;
     li { 
       text-align: center;
       line-height: 3rem;
@@ -37,7 +38,7 @@ class Pagination extends Component {
       <Holder>
         {!isFirst && (
           <p>
-            <Link to={prevPage} rel="prev">←</Link>
+            <Link to={prevPage} rel="prev">Newer</Link>
           </p>
         )}
         <ul>
@@ -51,7 +52,7 @@ class Pagination extends Component {
         </ul>
         {!isLast && (
           <p>
-            <Link to={nextPage} rel="next">→</Link>
+            <Link to={nextPage} rel="next">Older</Link>
           </p>
         )}
       </Holder>

@@ -9,8 +9,6 @@ const Holder = styled.header`
     p {
       margin: 0;
       line-height: 1;
-      font-weight: 600;
-      text-transform: uppercase;
     }
 `;
 
