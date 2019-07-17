@@ -27,7 +27,10 @@ exports.createPages = ( { actions, graphql } ) => {
         }
       }
       art: allMarkdownRemark(
-        filter: { fileAbsolutePath: {regex : "\/_posts/art/"} }
+        filter: { 
+          fileAbsolutePath: {regex : "\/_posts/art/"} 
+          frontmatter:{ rating: { gte: 2} }
+        }
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
       ) {
@@ -35,6 +38,7 @@ exports.createPages = ( { actions, graphql } ) => {
           node {
             frontmatter {
               title
+              rating
             }
           }
         }
@@ -77,7 +81,7 @@ exports.createPages = ( { actions, graphql } ) => {
 
     // Create art-list pages
     const posts = result.data.art.edges;
-    const postsPerPage = 80;
+    const postsPerPage = 90;
     const numPages = Math.ceil( posts.length / postsPerPage );
     Array.from( { length: numPages } ).forEach( ( _, i ) => {
       createPage( {

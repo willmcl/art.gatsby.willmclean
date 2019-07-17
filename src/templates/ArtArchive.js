@@ -11,14 +11,16 @@ const Holder = styled.ul`
     list-style: none;
     padding-left: 0;
     display: grid;
-    grid-column-gap: 2rem;
-    grid-row-gap: 2rem;
+    margin-top: 8rem;
+    grid-column-gap: 4rem;
+    grid-row-gap: 4rem;
     grid-template-columns: repeat(2, 1fr);
     @media ( ${props => props.theme.breakpoints.md} ) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 8rem;
+      grid-row-gap: 8rem;
     }
     @media ( ${props => props.theme.breakpoints.lg} ) {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
 `;
 
@@ -53,6 +55,7 @@ export const artArchiveQuery = graphql`
             skip: $skip
             filter: {
                 fileAbsolutePath: {regex : "\/_posts/art/"}
+                frontmatter:{ rating: { gte: 2} }
             }
         ) {
             edges {

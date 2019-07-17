@@ -21,7 +21,7 @@ class Header extends Component {
             {this.props.siteTitle}
           </Link>
         </p>
-        <p>Archive</p>
+        <p><a href="mailto:willmcl@gmail.com">Contact</a></p>
       </Holder>
     )
   }

@@ -7,7 +7,7 @@ const Holder = styled.footer`
     margin: 0;
     text-align: right;
     ${props => props.theme.typeStyles( -6 )};
-    line-height: 1;
+    line-height: 1.4;
   }
 `;
 
@@ -15,7 +15,7 @@ class Footer extends Component {
   render() {
     return (
       <Holder>
-        <p>© {new Date().getFullYear()}, <a href="https://www.willmclean.net">Will McLean</a></p>
+        <p>© Will McLean {new Date().getFullYear()}, <br/> Site by <a href="https://www.wills-websites.com">Will's Websites</a></p>
       </Holder>
     )
   }
