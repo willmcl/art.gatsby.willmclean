@@ -20,7 +20,7 @@ const Holder = styled.ul`
       grid-row-gap: 8rem;
     }
     @media ( ${props => props.theme.breakpoints.lg} ) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(6, 1fr);
     }
 `;
 

@@ -81,7 +81,7 @@ exports.createPages = ( { actions, graphql } ) => {
 
     // Create art-list pages
     const posts = result.data.art.edges;
-    const postsPerPage = 90;
+    const postsPerPage = 180;
     const numPages = Math.ceil( posts.length / postsPerPage );
     Array.from( { length: numPages } ).forEach( ( _, i ) => {
       createPage( {
