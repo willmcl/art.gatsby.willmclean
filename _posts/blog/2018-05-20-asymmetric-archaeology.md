@@ -1,6 +1,16 @@
 ---
 title: Asymmetric Archaeology
 date: 2018-05-20T06:15:57.233Z
+art:
+  - Untitled 507
+  - Untitled 508
+  - Untitled 509
+  - Untitled 510
+  - Untitled 511
+  - Untitled 512
+  - Untitled 513
+  - Untitled 514
+  - Untitled 515
 ---
 Asymmetric Archaeology brings together three contemporary artists whose practices incorporate elements of chaos and distortion when interpreting the urban landscape. Aedan Lee, Patrick Cremin and Will McLean act as archaeologists digging up and interpreting the world around them through personal fragmented lenses to restructure, dissect and understand their environments. The works correlate not only to their aesthetic, being exclusively rendered in tonal black and whites, but also in their analytical framework which seeks truth in the apparent bedlam of the man-made habitat.
 

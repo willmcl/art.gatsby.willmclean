@@ -1,7 +1,17 @@
 ---
 title: Back to my old seat
-path: /back-to-my-old-seat
 date: 2018-09-08T06:15:57.233Z
+art:
+  - Untitled 535
+  - Untitled 550
+  - Untitled 534
+  - Untitled 532
+  - Untitled 530
+  - Untitled 548
+  - Untitled 543
+  - Untitled 541
+  - Untitled 539
+  - Untitled 536
 ---
 I had time for painting… then I didn’t. Now I am back to my old seat in Harmony Park, Steadlier in hand and a head full of dreams.
 
