@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/organisms/Layout';
-import Image from '../components/elements/Image';
 import styled, { keyframes } from 'styled-components';
 import moment from 'moment';
-import { convertToSlug } from '../utils/helpers';
+import Img from 'gatsby-image';
 
 const fadeIn = keyframes`
   from { opacity: 0; }
@@ -41,10 +40,6 @@ const Content = styled.section`
     margin-top: 2rem;
     animation: ${fadeIn} 0.1s linear 0.25s 1 normal both;
     > :nth-child(even) { text-align: right; }
-    .description {
-      grid-column: 1/3;
-      margin-top: 2rem;
-    }
   }
 `;
 
@@ -62,15 +57,11 @@ const Pagination = styled.nav`
   }
 `;
 
-class Art extends Component {
-
-  componentDidMount() {
-    console.log( this.props.pageContext );
-  }
+class ArtworkTemplate extends Component {
 
   render() {
-    const { markdownRemark } = this.props.data;
-    const { frontmatter, html } = markdownRemark;
+    const { contentfulArtwork } = this.props.data;
+    const { title, createdAt, image } = contentfulArtwork;
     const { prev, next } = this.props.pageContext;
     return (
       <Layout>
@@ -78,28 +69,23 @@ class Art extends Component {
           <Pagination prev>
             {prev && (
               <p>
-                <Link to={`/art/${convertToSlug( prev.node.frontmatter.title )}`} rel="prev">Newer</Link>
+                <Link to={`/art/${prev.node.id}`} rel="prev">Newer</Link>
               </p>
             )}
           </Pagination>
           <Content>
-            <Image
-              imgName={frontmatter.thumbnail}
-              sizes="(min-width: 768px) 50vw, 100vw"/>
+            <Img fluid={image.fluid}/>
             <div className="text">
-              <h1>{frontmatter.title}</h1>
-              <p>{moment( frontmatter.date ).format( 'YYYY' )}</p>
-              <p>{frontmatter.material}</p>
-              <p>{frontmatter.width} x {frontmatter.height}</p>
-              {html && (
-                <div className="description" dangerouslySetInnerHTML={{ __html: html }}/>
-              )}
+              <h1>{title}</h1>
+              <p>{moment( createdAt ).format( 'YYYY' )}</p>
+              <p>Material</p>
+              <p>dimensions</p>
             </div>
           </Content>
           <Pagination>
             {next && (
               <p>
-                <Link to={`/art/${convertToSlug( next.node.frontmatter.title )}`} rel="next">Older</Link>
+                <Link to={`/art/${next.node.id}`} rel="next">Older</Link>
               </p>
             )}
           </Pagination>
@@ -109,19 +95,20 @@ class Art extends Component {
   }
 }
 
-export default Art;
+export default ArtworkTemplate;
 
 export const pageQuery = graphql`
-    query($title: String!) {
-        markdownRemark(frontmatter: { title: { eq: $title } }) {
-            html
-            frontmatter {
-                title
-                date
-                thumbnail
-                material
-                width
-                height
+    query($id: String!) {
+        contentfulArtwork(id: { eq: $id }) {
+            title
+            createdAt
+            image {
+                fluid(maxWidth: 1000) {
+                    sizes
+                    src
+                    srcSet
+                    aspectRatio
+                }
             }
         }
     }

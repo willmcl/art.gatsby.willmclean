@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import { convertToSlug } from '../../utils/helpers';
-import FirstBlogArtImage from './FirstBlogArtImage';
 import styled from 'styled-components';
+import Img from 'gatsby-image';
 
 const Holder = styled.li`
   @media ( ${props => props.theme.breakpoints.sm} ) {
@@ -26,11 +26,10 @@ const Holder = styled.li`
   }
   .images {
     display: none;
-    img {
+    .imageHolder {
       position: fixed;
       z-index: -1;
       width: 20vw;
-      height: auto;
       &:nth-child(1) { top: 8vw; left: 8vw; }
       &:nth-child(2) { top: 8vw; right: 8vw; }
       &:nth-child(3) { bottom: 8vw; right: 8vw; }
@@ -43,20 +42,20 @@ const Holder = styled.li`
 class BlogPreview extends Component {
 
   render() {
-    const frontmatter = this.props.post.frontmatter;
+    const post = this.props.post;
     return (
       <Holder>
         <div className="text">
-          <Link to={`/blog/${convertToSlug( frontmatter.title )}`}>
+          <Link to={`/blog/${convertToSlug( post.title )}`}>
             <span className="number">{this.props.i + 1}</span>
-            <span>{frontmatter.title}</span>
+            <span>{post.title}</span>
           </Link>
         </div>
         <div className="images">
-          <FirstBlogArtImage art={frontmatter.art}/>
-          <FirstBlogArtImage art={frontmatter.art}/>
-          <FirstBlogArtImage art={frontmatter.art}/>
-          <FirstBlogArtImage art={frontmatter.art}/>
+          <div class="imageHolder"><Img fluid={post.artworks[ 0 ].image.fluid}/></div>
+          <div class="imageHolder"><Img fluid={post.artworks[ 0 ].image.fluid}/></div>
+          <div class="imageHolder"><Img fluid={post.artworks[ 0 ].image.fluid}/></div>
+          <div class="imageHolder"><Img fluid={post.artworks[ 0 ].image.fluid}/></div>
         </div>
       </Holder>
     )

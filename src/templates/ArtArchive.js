@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/organisms/Layout';
-import ArtPreview from '../components/molecules/ArtPreview';
+import ArtworkPreview from '../components/molecules/ArtworkPreview';
 import styled from 'styled-components';
 import SEO from '../components/molecules/SEO';
 import Pagination from '../components/organisms/Pagination';
@@ -34,8 +34,8 @@ class ArtArchive extends Component {
         <article>
           <Intro visible={this.props.pageContext.currentPage === 1}/>
           <Holder>
-            {this.props.data.allMarkdownRemark.edges.map( edge => (
-              <ArtPreview key={edge.node.id} post={edge.node}/>
+            {this.props.data.allContentfulArtwork.edges.map( edge => (
+              <ArtworkPreview key={edge.node.id} post={edge.node}/>
             ) )}
           </Holder>
           <Pagination pageContext={this.props.pageContext}/>
@@ -49,22 +49,23 @@ export default ArtArchive;
 
 export const artArchiveQuery = graphql`
     query artArchiveQuery($skip: Int!, $limit: Int!) {
-        allMarkdownRemark(
-            sort: {fields: [frontmatter___date], order: DESC}
+        allContentfulArtwork(
+            sort: {fields: [createdAt], order: DESC}
             limit: $limit
             skip: $skip
-            filter: {
-                fileAbsolutePath: {regex : "\/_posts/art/"}
-                frontmatter:{ rating: { gte: 2} }
-            }
         ) {
             edges {
                 node {
                     id
-                    frontmatter {
-                        title
-                        date
-                        thumbnail
+                    title
+                    createdAt
+                    image {
+                        fluid(maxWidth: 1000) {
+                            sizes
+                            src
+                            srcSet
+                            aspectRatio
+                        }
                     }
                 }
             }

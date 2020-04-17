@@ -5,41 +5,37 @@
  */
 
 const path = require("path");
-const { createFilePath } = require("gatsby-source-filesystem");
 
 exports.createPages = ( { actions, graphql } ) => {
   const { createPage } = actions;
-  const blogTemplate = path.resolve( `src/templates/Blog.js` );
-  const artTemplate = path.resolve( `src/templates/Art.js` );
+  const blogTemplate = path.resolve( `src/templates/BlogTemplate.js` );
+  const artTemplate = path.resolve( `src/templates/ArtworkTemplate.js` );
   return graphql( `
     {
-      blogs: allMarkdownRemark(
-        filter: { fileAbsolutePath: {regex : "\/_posts/blog/"} }
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
+      blogs: allContentfulBlog(
+        sort: {
+          fields: [createdAt]
+          order: DESC
+        }
+      ){
         edges {
-          node {
-            frontmatter {
-              title
-            }
+          node{
+            id
+            title
           }
         }
       }
-      art: allMarkdownRemark(
-        filter: { 
-          fileAbsolutePath: {regex : "\/_posts/art/"} 
-          frontmatter:{ rating: { gte: 2} }
+      art: allContentfulArtwork(
+        sort: { 
+          order: DESC, 
+          fields: [createdAt] 
         }
-        sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
       ) {
         edges {
           node {
-            frontmatter {
-              title
-              rating
-            }
+            id
+            title
           }
         }
       }
@@ -53,12 +49,12 @@ exports.createPages = ( { actions, graphql } ) => {
     // Create blog pages
     result.data.blogs.edges.forEach( ( { node } ) => {
       createPage( {
-        path: '/blog/' + node.frontmatter.title.toLowerCase()
+        path: '/blog/' + node.title.toLowerCase()
         .replace( /[^\w ]+/g, '' )
         .replace( / +/g, '-' ),
         component: blogTemplate,
         context: {
-          title: node.frontmatter.title,
+          title: node.title,
         }, // additional data can be passed via context
       } )
     } );
@@ -67,12 +63,10 @@ exports.createPages = ( { actions, graphql } ) => {
     const artPosts = result.data.art.edges;
     artPosts.forEach( ( { node }, i, array ) => {
       createPage( {
-        path: '/art/' + node.frontmatter.title.toLowerCase()
-        .replace( /[^\w ]+/g, '' )
-        .replace( / +/g, '-' ),
+        path: '/art/' + node.id,
         component: artTemplate,
         context: {
-          title: node.frontmatter.title,
+          id: node.id,
           next: array[i + 1],
           prev: array[i - 1],
         },
@@ -81,7 +75,7 @@ exports.createPages = ( { actions, graphql } ) => {
 
     // Create art-list pages
     const posts = result.data.art.edges;
-    const postsPerPage = 180;
+    const postsPerPage = 2;
     const numPages = Math.ceil( posts.length / postsPerPage );
     Array.from( { length: numPages } ).forEach( ( _, i ) => {
       createPage( {

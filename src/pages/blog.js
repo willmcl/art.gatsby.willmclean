@@ -26,7 +26,7 @@ class Blog extends Component {
         <SEO title="Blog"/>
         <article>
           <List>
-            {this.props.data.allMarkdownRemark.edges.map( (edge, i) => (
+            {this.props.data.allContentfulBlog.edges.map( ( edge, i ) => (
               <BlogPreview key={edge.node.id} post={edge.node} i={i}/>
             ) )}
           </List>
@@ -39,28 +39,25 @@ class Blog extends Component {
 export default Blog;
 
 export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: {regex : "\/_posts/blog/"}
-      }
-      sort: {
-        fields: [frontmatter___date]
-        order: DESC
-      }
-    ){
-      edges {
-        node{
-          id
-          frontmatter {
-            title
-            date
-            path
-            thumbnail
-            art
-          }
+    query {
+        allContentfulBlog(sort: {fields: createdAt, order: DESC}) {
+            edges {
+                node {
+                    id
+                    title
+                    artworks {
+                        id
+                        image {
+                            fluid(maxWidth: 200) {
+                                sizes
+                                src
+                                srcSet
+                                aspectRatio
+                            }
+                        }
+                    }
+                }
+            }
         }
-      }
     }
-  }
 `

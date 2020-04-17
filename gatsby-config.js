@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Will Mclean`,
@@ -9,9 +13,11 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-plugin-styled-components`,
     {
-      resolve: `gatsby-plugin-netlify-cms`,
+      resolve: `gatsby-source-contentful`,
       options: {
-        enableIdentityWidget: true,
+        spaceId: `olp6s4xpwmmv`,
+        // Learn about environment variables: https://gatsby.dev/env-vars
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
     {

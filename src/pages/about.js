@@ -31,9 +31,10 @@ const SecondPage = () => (
     <Holder>
       <div className="text">
         <h1>About</h1>
-        <p>Will McLean is an artist based in Wamberal on the Central Coast of NSW, Australia. His practice takes the form of abstracted observational acrylic paintings. These paintings are based on studies produced in pencil.</p>
+        <p>Will McLean is an artist based in Wamberal on the Central Coast of NSW, Australia. His practice takes the form of abstracted observational paintings.</p>
         <h2>Group Shows</h2>
         <ul>
+          <li>Rude Assembly 4 - 2019 - Above the Toolshed</li>
           <li>Rude Assembly 3 - 2019 - Burton Project Space</li>
           <li>Asymetric Archaeology - 2018 - China Heights</li>
           <li>Works on Paper - 2017 - China Heights</li>

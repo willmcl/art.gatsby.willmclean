@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { StaticQuery, graphql } from 'gatsby';
-import ArtPreview from '../molecules/ArtPreview';
+import ArtworkPreview from '../molecules/ArtworkPreview';
 import styled from 'styled-components';
 
 const List = styled.ul`
@@ -22,43 +21,13 @@ const List = styled.ul`
 class BlogArtPosts extends Component {
 
   render() {
-    if ( this.props.art ) {
+    if ( this.props.artworks ) {
       return (
-        <StaticQuery
-          query={graphql`
-            query BlogArtPostsQuery {
-            allMarkdownRemark(
-              filter: {
-                  fileAbsolutePath: {regex : "\/_posts/art/"}
-              }
-            ){
-              edges {
-                node{
-                  id
-                  frontmatter {
-                    title
-                    thumbnail
-                  }
-                }
-              }
-            }
-          }`}
-          render={data => {
-            const works = data.allMarkdownRemark.edges.filter(
-              edge => this.props.art.includes( edge.node.frontmatter.title )
-            );
-            if ( !works ) {
-              return null
-            }
-            return (
-              <List>
-                {works.map( edge => (
-                  <ArtPreview key={edge.node.id} post={edge.node}/>
-                ) )}
-              </List>
-            )
-          }}
-        />
+        <List>
+          {this.props.artworks.map( edge => (
+            <ArtworkPreview key={edge.id} post={edge}/>
+          ) )}
+        </List>
       )
     } else {
       return null
