@@ -28,7 +28,7 @@ exports.createPages = ( { actions, graphql } ) => {
       art: allContentfulArtwork(
         sort: { 
           order: DESC, 
-          fields: [createdAt] 
+          fields: [date] 
         }
         limit: 1000
       ) {

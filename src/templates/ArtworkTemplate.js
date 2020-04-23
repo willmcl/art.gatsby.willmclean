@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { graphql, Link } from 'gatsby';
 import Layout from '../components/organisms/Layout';
 import styled, { keyframes } from 'styled-components';
-import moment from 'moment';
 import Img from 'gatsby-image';
 
 const fadeIn = keyframes`
@@ -61,7 +60,7 @@ class ArtworkTemplate extends Component {
 
   render() {
     const { contentfulArtwork } = this.props.data;
-    const { title, createdAt, image } = contentfulArtwork;
+    const { title, image, date, material, width, height, buy } = contentfulArtwork;
     const { prev, next } = this.props.pageContext;
     return (
       <Layout>
@@ -77,9 +76,10 @@ class ArtworkTemplate extends Component {
             <Img fluid={image.fluid}/>
             <div className="text">
               <h1>{title}</h1>
-              <p>{moment( createdAt ).format( 'YYYY' )}</p>
-              <p>Material</p>
-              <p>dimensions</p>
+              <p>{date}</p>
+              <p>{material}</p>
+              <p>{width && height && `${width}cm x ${height}cm`}</p>
+              {buy && <p><a href={buy} target="_blank" rel="noopener noreferrer">Buy</a></p>}
             </div>
           </Content>
           <Pagination>
@@ -102,6 +102,11 @@ export const pageQuery = graphql`
         contentfulArtwork(id: { eq: $id }) {
             title
             createdAt
+            material
+            width
+            height
+            date(formatString: "YYYY")
+            buy
             image {
                 fluid(maxWidth: 1000) {
                     sizes
