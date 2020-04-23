@@ -18,7 +18,7 @@ class Navigation extends Component {
         return (
             <nav>
               <List>
-                <li><Link to="/">Archive</Link></li>
+                <li><Link to="/archive">Archive</Link></li>
                 <li><Link to="/blog">Blog</Link></li>
                 <li><Link to="/about/">About</Link></li>
                 <li><a href="https://www.etsy.com/au/shop/WillMcLeanStudio" target="_blank" rel="noopener noreferrer">Shop</a></li>

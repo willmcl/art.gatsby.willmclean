@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 import Img from 'gatsby-image';
 
-const ListItem = styled.li`
+const ListItem = styled.div`
   img {
     width: 100%;
     height: auto;

@@ -5,11 +5,8 @@ import ArtworkPreview from '../components/molecules/ArtworkPreview';
 import styled from 'styled-components';
 import SEO from '../components/molecules/SEO';
 import Pagination from '../components/organisms/Pagination';
-import Intro from '../components/molecules/Intro';
 
-const Holder = styled.ul`
-    list-style: none;
-    padding-left: 0;
+const Holder = styled.div`
     display: grid;
     margin-top: 8rem;
     grid-column-gap: 4rem;
@@ -32,7 +29,6 @@ class ArtArchive extends Component {
       <Layout>
         <SEO title="Art"/>
         <article>
-          <Intro visible={this.props.pageContext.currentPage === 1}/>
           <Holder>
             {this.props.data.allContentfulArtwork.edges.map( edge => (
               <ArtworkPreview key={edge.node.id} post={edge.node}/>

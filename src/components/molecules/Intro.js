@@ -21,20 +21,16 @@ const Holder = styled.div`
 
 class Intro extends Component {
   render() {
-    if ( this.props.visible ) {
-      return (
-        <Holder>
-          <section>
-            <CircleText text="I just need to see everything in one place."/>
-          </section>
-          <section>
-            <CircleText text="It'll all be clear then."/>
-          </section>
-        </Holder>
-      )
-    } else {
-      return null;
-    }
+    return (
+      <Holder>
+        <section>
+          <CircleText text="I just need to see everything in one place."/>
+        </section>
+        <section>
+          <CircleText text="It'll all be clear then."/>
+        </section>
+      </Holder>
+    )
   }
 }
 

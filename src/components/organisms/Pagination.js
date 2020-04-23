@@ -31,8 +31,8 @@ class Pagination extends Component {
     const { currentPage, numPages } = this.props.pageContext;
     const isFirst = currentPage === 1;
     const isLast = currentPage === numPages;
-    const prevPage = currentPage - 1 === 1 ? '/' : `/${(currentPage - 1).toString()}`;
-    const nextPage = `/${(currentPage + 1).toString()}`;
+    const prevPage = currentPage - 1 === 1 ? '/archive' : `/archive/${(currentPage - 1).toString()}`;
+    const nextPage = `/archive/${(currentPage + 1).toString()}`;
 
     return (
       <Holder>
@@ -44,7 +44,7 @@ class Pagination extends Component {
         <ul>
           {Array.from( { length: numPages }, ( _, i ) => (
             <li key={`pagination-number${i + 1}`}>
-              <Link to={`/${i === 0 ? '' : i + 1}`}>
+              <Link to={`/archive/${i === 0 ? '' : i + 1}`}>
                 {i + 1}
               </Link>
             </li>
