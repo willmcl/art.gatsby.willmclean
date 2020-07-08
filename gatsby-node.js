@@ -27,7 +27,7 @@ exports.createPages = ( { actions, graphql } ) => {
       }
       art: allContentfulArtwork(
         sort: { 
-          order: DESC, 
+          order: ASC, 
           fields: [date] 
         }
         limit: 1000
@@ -75,7 +75,7 @@ exports.createPages = ( { actions, graphql } ) => {
 
     // Create art-list pages
     const posts = result.data.art.edges;
-    const postsPerPage = 2;
+    const postsPerPage = 30;
     const numPages = Math.ceil( posts.length / postsPerPage );
     Array.from( { length: numPages } ).forEach( ( _, i ) => {
       createPage( {

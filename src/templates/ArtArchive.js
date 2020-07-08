@@ -46,7 +46,7 @@ export default ArtArchive;
 export const artArchiveQuery = graphql`
     query artArchiveQuery($skip: Int!, $limit: Int!) {
         allContentfulArtwork(
-            sort: {fields: [createdAt], order: DESC}
+            sort: {fields: [createdAt], order: ASC}
             limit: $limit
             skip: $skip
         ) {
