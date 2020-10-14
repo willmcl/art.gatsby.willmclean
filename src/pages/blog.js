@@ -3,6 +3,7 @@ import Layout from '../components/organisms/Layout';
 import styled from 'styled-components';
 import BlogPreview from '../components/molecules/BlogPreview';
 import SEO from '../components/molecules/SEO';
+import { graphql } from 'gatsby';
 
 const List = styled.ul`
   list-style: none;
