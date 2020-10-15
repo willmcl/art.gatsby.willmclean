@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
+import { PropTypes } from 'prop-types';
 
 const Holder = styled.nav`
   display: grid;
@@ -31,8 +32,8 @@ class Pagination extends Component {
     const { currentPage, numPages } = this.props.pageContext;
     const isFirst = currentPage === 1;
     const isLast = currentPage === numPages;
-    const prevPage = currentPage - 1 === 1 ? '/archive' : `/archive/${(currentPage - 1).toString()}`;
-    const nextPage = `/archive/${(currentPage + 1).toString()}`;
+    const prevPage = currentPage - 1 === 1 ? `/${this.props.base}` : `/${this.props.base}/${(currentPage - 1).toString()}`;
+    const nextPage = `/${this.props.base}/${(currentPage + 1).toString()}`;
 
     return (
       <Holder>
@@ -44,7 +45,7 @@ class Pagination extends Component {
         <ul>
           {Array.from( { length: numPages }, ( _, i ) => (
             <li key={`pagination-number${i + 1}`}>
-              <Link to={`/archive/${i === 0 ? '' : i + 1}`}>
+              <Link to={`/${this.props.base}/${i === 0 ? '' : i + 1}`}>
                 {i + 1}
               </Link>
             </li>
@@ -59,5 +60,9 @@ class Pagination extends Component {
     )
   }
 }
+
+Pagination.propTypes = {
+  base: PropTypes.string.isRequired
+};
 
 export default Pagination;

@@ -25,6 +25,36 @@ exports.createPages = ( { actions, graphql } ) => {
           }
         }
       }
+      drawings: allContentfulArtwork(
+        sort: { 
+          order: DESC, 
+          fields: [date] 
+        }
+        limit: 1000
+        filter: {includeInDrawings: {eq: true}}
+      ) {
+        edges {
+          node {
+            id
+            title
+          }
+        }
+      }
+      paintings: allContentfulArtwork(
+        sort: { 
+          order: DESC, 
+          fields: [date]
+        }
+        limit: 1000
+        filter: {includeInPaintings: {eq: true}}
+      ) {
+        edges {
+          node {
+            id
+            title
+          }
+        }
+      }
     }
   ` ).then( result => {
 
@@ -46,17 +76,41 @@ exports.createPages = ( { actions, graphql } ) => {
       } )
     } );
 
-    // Create art-list pages
-    const posts = result.data.art.edges;
-    const postsPerPage = 60;
-    const numPages = Math.ceil( posts.length / postsPerPage );
-    Array.from( { length: numPages } ).forEach( ( _, i ) => {
+    // Create art-archive pages
+    const artArchivePosts = result.data.art.edges;
+    const artArchivePostsPerPage = 60;
+    const artArchiveNumPages = Math.ceil( artArchivePosts.length / artArchivePostsPerPage );
+    Array.from( { length: artArchiveNumPages } ).forEach( ( _, i ) => {
       createPage( {
         path: i === 0 ? `/archive` : `/archive/${i + 1}`,
         component: path.resolve( './src/templates/ArtArchive.js' ),
-        context: { limit: postsPerPage, skip: i * postsPerPage, numPages, currentPage: i + 1, },
+        context: { limit: artArchivePostsPerPage, skip: i * artArchivePostsPerPage, numPages: artArchiveNumPages, currentPage: i + 1, },
       } )
-    } )
+    } );
+
+    // Create painting-archive pages
+    const paintingArchivePosts = result.data.paintings.edges;
+    const paintingArchivePostsPerPage = 60;
+    const paintingArchiveNumPages = Math.ceil( paintingArchivePosts.length / paintingArchivePostsPerPage );
+    Array.from( { length: paintingArchiveNumPages } ).forEach( ( _, i ) => {
+      createPage( {
+        path: i === 0 ? `/paintings` : `/paintings/${i + 1}`,
+        component: path.resolve( './src/templates/PaintingsArchive.js' ),
+        context: { limit: paintingArchivePostsPerPage, skip: i * paintingArchivePostsPerPage, numPages: paintingArchiveNumPages, currentPage: i + 1, },
+      } )
+    } );
+
+    // Create drawing-archive pages
+    const drawingArchivePosts = result.data.drawings.edges;
+    const drawingArchivePostsPerPage = 60;
+    const drawingArchiveNumPages = Math.ceil( drawingArchivePosts.length / drawingArchivePostsPerPage );
+    Array.from( { length: drawingArchiveNumPages } ).forEach( ( _, i ) => {
+      createPage( {
+        path: i === 0 ? `/drawings` : `/drawings/${i + 1}`,
+        component: path.resolve( './src/templates/DrawingsArchive.js' ),
+        context: { limit: drawingArchivePostsPerPage, skip: i * drawingArchivePostsPerPage, numPages: drawingArchiveNumPages, currentPage: i + 1, },
+      } )
+    } );
 
   } )
 };

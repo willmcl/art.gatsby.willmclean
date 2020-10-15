@@ -2,53 +2,39 @@ import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/organisms/Layout';
 import ArtworkPreview from '../components/molecules/ArtworkPreview';
-import styled from 'styled-components';
 import SEO from '../components/molecules/SEO';
 import Pagination from '../components/organisms/Pagination';
+import GridLayout from '../components/molecules/GridLayout';
 
-const Holder = styled.div`
-    display: grid;
-    margin-top: 8rem;
-    grid-column-gap: 4rem;
-    grid-row-gap: 4rem;
-    grid-template-columns: repeat(2, 1fr);
-    @media ( ${props => props.theme.breakpoints.md} ) {
-      grid-column-gap: 8rem;
-      grid-row-gap: 8rem;
-    }
-    @media ( ${props => props.theme.breakpoints.lg} ) {
-      grid-template-columns: repeat(6, 1fr);
-    }
-`;
-
-class ArtArchive extends Component {
+class PaintingsArchive extends Component {
 
   render() {
 
     return (
       <Layout>
-        <SEO title="Art"/>
+        <SEO title="Paintings"/>
         <article>
-          <Holder>
+          <GridLayout>
             {this.props.data.allContentfulArtwork.edges.map( edge => (
               <ArtworkPreview key={edge.node.id} post={edge.node}/>
             ) )}
-          </Holder>
-          <Pagination base="archive" pageContext={this.props.pageContext}/>
+          </GridLayout>
+          <Pagination base="paintings" pageContext={this.props.pageContext}/>
         </article>
       </Layout>
     )
   }
 }
 
-export default ArtArchive;
+export default PaintingsArchive;
 
-export const artArchiveQuery = graphql`
-    query artArchiveQuery($skip: Int!, $limit: Int!) {
+export const paintingsArchiveQuery = graphql`
+    query paintingsArchiveQuery($skip: Int!, $limit: Int!) {
         allContentfulArtwork(
             sort: {fields: [date], order: DESC}
             limit: $limit
             skip: $skip
+            filter: {includeInPaintings: {eq: true}}
         ) {
             edges {
                 node {
