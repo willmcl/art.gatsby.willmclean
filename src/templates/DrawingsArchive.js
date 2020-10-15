@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/organisms/Layout';
 import ArtworkPreview from '../components/molecules/ArtworkPreview';
-import styled from 'styled-components';
 import SEO from '../components/molecules/SEO';
 import Pagination from '../components/organisms/Pagination';
 import GridLayout from '../components/molecules/GridLayout';
