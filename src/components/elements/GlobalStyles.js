@@ -109,6 +109,11 @@ const GlobalStyle = createGlobalStyle`
   
   sub { top: 0.4em; }
   
+  
+  .gatsby-image-wrapper {
+    background-color: #f8f8f8;
+  }
+  
   label {
       ${props => props.theme.typeStyles( -1 )};
       line-height: 1.2;
