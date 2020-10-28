@@ -41,6 +41,7 @@ export const drawingsArchiveQuery = graphql`
                     id
                     title
                     createdAt
+                    buy
                     image {
                         fluid(maxWidth: 1000) {
                             sizes
