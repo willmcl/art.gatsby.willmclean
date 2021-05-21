@@ -73,7 +73,7 @@ class ArtworkTemplate extends Component {
             )}
           </Pagination>
           <Content>
-            <Img fluid={image.fluid}/>
+            {image && <Img fluid={image.fluid}/>}
             <div className="text">
               <h1>{title}</h1>
               <p>{date}</p>

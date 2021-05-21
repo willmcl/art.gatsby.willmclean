@@ -25,7 +25,7 @@ class ArtworkPreview extends Component {
     return (
       <ListItem>
         <Link to={`/art/${this.props.post.id}`}>
-          <Img fluid={this.props.post.image.fluid}/>
+          {this.props.post.image && <Img fluid={this.props.post.image.fluid}/>}
         </Link>
         {this.props.post.buy && <BuyText><a href={this.props.post.buy} target="_blank" rel="noopener noreferrer">Buy &rarr;</a></BuyText>}
       </ListItem>
