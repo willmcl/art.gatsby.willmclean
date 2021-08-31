@@ -60,6 +60,10 @@ function SEO({ description, lang, meta, keywords, title }) {
           name: `twitter:description`,
           content: metaDescription,
         },
+        {
+          name: `p:domain_verify`,
+          content: `87f725b83ff36f3446b5c99a8ce62c10`,
+        },
       ]
         .concat(
           keywords.length > 0
